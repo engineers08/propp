@@ -11,7 +11,7 @@
 </head>
 <body>
 <section id="calculate" data-role="page">
-	<header data-role="header"><h1>คำนวณราคาซื้อบ้าน คอนโด เพื่อปล่อยเช่า<br>Property calculate cost 1.0</h1></header>
+	<header data-role="header"><h1>คำนวณราคาซื้อบ้าน <br>คอนโด เพื่อปล่อยเช่า<br>Property calculate cost</h1></header>
 <?php
 require_once('validate.php');
 if($_POST['offer']!=''){
@@ -19,7 +19,9 @@ if($_POST['offer']!=''){
 		if($_POST['expenses']!=''){
 			if($_POST['profit']!=''){
 				if(fnValidateNumber($_POST['profit'])){
-					$purchase = (($_POST['income']*12)-($_POST['expenses']*12))*100/$_POST['profit'];
+					$income_y = $_POST['income']*12;
+					$expenses_y = $_POST['expenses']*12;
+					$purchase = (($income_y-$expenses_y)*100)/$_POST['profit'];
 					$offset = ($purchase*10)/100;
 					$offset_minus = number_format(($purchase-$offset),2);
 					$offset_plus = number_format(($purchase+$offset),2);
