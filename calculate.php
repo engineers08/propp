@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Lek Property 1.0</title>
 	<link rel="shortcut icon" href="favicon.ico">
@@ -10,6 +10,8 @@
 	<script src="js/jquery.mobile-1.4.5.min.js"></script>
 </head>
 <body>
+<section id="calculate" data-role="page">
+	<header data-role="header"><h1>คำนวณราคาซื้อบ้าน คอนโด เพื่อปล่อยเช่า<br>Property calculate cost 1.0</h1></header>
 <?php
 require_once('validate.php');
 if($_POST['offer']!=''){
@@ -34,27 +36,34 @@ if($_POST['offer']!=''){
 					}
 					echo "<u><b>ผลการคำนวณ (Result)</b></u> : <br>ราคาที่ควรซื้อ (Suitable Cost)  : ".number_format( $purchase , 2 )." baht<br>";
 					echo "ช่วงราคาที่เหมาะสม (Range of suitable Cost) : ".$offset_minus." - ".$offset_plus." baht<br>";
-					echo "ข้อเสนอแนะ (Suggestion) : $str<br><a href='index.php'>Back to home</a>";
+					echo "ข้อเสนอแนะ (Suggestion) : $str<br>";
+					echo "<a href='index.html' data-role='button' data-inline='true'>Back to home</a>";
 				}
 				else{
-					echo "<span style='color:red;'>กำไรที่ต้องการ หรือ อัตราดอกเบี้ยธนาคาร ต้องเป็นตัวเลขหรือทศนิยมเท่านั้น!!</span><br><a href='index.php'>Back to home</a>";
+					echo "<span style='color:red;'>กำไรที่ต้องการ หรือ อัตราดอกเบี้ยธนาคาร ต้องเป็นตัวเลขหรือทศนิยมเท่านั้น!!</span><br>";
+					echo "<a href='index.html' data-role='button' data-inline='true'>Back to home</a>";
 				}
 			}
 			else{
-				echo "<span style='color:red;'>กำไรที่ต้องการ หรือ อัตราดอกเบี้ยธนาคาร ต้องไม่เป็นค่าว่าง!!</span><br><a href='index.php'>Back to home</a>";
+				echo "<span style='color:red;'>กำไรที่ต้องการ หรือ อัตราดอกเบี้ยธนาคาร ต้องไม่เป็นค่าว่าง!!</span><br>";
+				echo "<a href='index.html' data-role='button' data-inline='true'>Back to home</a>";
 			}
 		}
 		else{
-			echo "<span style='color:red;'>รายจ่าย/เดือน ต้องไม่เป็นค่าว่าง!!</span><br><a href='index.php'>Back to home</a>";
+			echo "<span style='color:red;'>รายจ่าย/เดือน ต้องไม่เป็นค่าว่าง!!</span><br>";
+			echo "<a href='index.html' data-role='button' data-inline='true'>Back to home</a>";
 		}
 	}
 	else{
-		echo "<span style='color:red;'>รายรับ/เดือน ต้องไม่เป็นค่าว่าง!!</span><br><a href='index.php'>Back to home</a>";
+		echo "<span style='color:red;'>รายรับ/เดือน ต้องไม่เป็นค่าว่าง!!</span><br>";
+		echo "<a href='index.html' data-role='button' data-inline='true'>Back to home</a>";
 	}
 }
 else{
-	echo "<span style='color:red;'>ราคาขาย ต้องไม่เป็นค่าว่าง!!</span><br><a href='index.php'>Back to home</a>";
+	echo "<span style='color:red;'>ราคาขาย ต้องไม่เป็นค่าว่าง!!</span><br>";
+	echo "<a href='index.html' data-role='button' data-inline='true'>Back to home</a>";
 }
 ?>
+</section><!-- /page -->
 </body>
 </html>
