@@ -27,14 +27,14 @@ if($_POST['offer']!=''){
 					$offset_plus = number_format(($purchase+$offset),2);
 					$total=0;
 					$str='';
-					if($_POST['offer']>=$purchase){
+					if($_POST['offer']>$purchase){
 						$total = (($_POST['offer']-$purchase)*$purchase)/100;
-						if($total>=10){
-							$str="<span style='color:red;'>ราคาแพง ไม่สมควรซื้อ...That's expensive!!</span>";
+						if($total>10){
+							$str="<span style='color:red;'>ราคาแพง ไม่สมควรซื้อ...That is expensive!!</span>";
 						}
 					}
 					if($_POST['offer']<$purchase){
-						$str="<span style='color:green;'>ราคาถูก สมควรซื้อ...That's cheap!!</span>";
+						$str="<span style='color:green;'>ราคาถูก สมควรซื้อ...That is cheap!!</span>";
 					}
 					echo "<u><b>ผลการคำนวณ (Result)</b></u> : <br>ราคาที่ควรซื้อ (Suitable Cost)  : ".number_format( $purchase , 2 )." baht<br>";
 					echo "ช่วงราคาที่เหมาะสม (Range of suitable Cost) : ".$offset_minus." - ".$offset_plus." baht<br>";
